@@ -139,6 +139,21 @@
   cursor: pointer;
 }
 
+//mobile cards
+.card-img-overlay {
+  background-color: rgba(64, 64, 64, 0.6);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.mobile-card-img {
+}
+
+.mobile-techstack {
+  font-family: "Space Mono", monospace;
+}
+
 @media only screen and (max-width: 770px) {
   .projects-desktop {
     display: none;

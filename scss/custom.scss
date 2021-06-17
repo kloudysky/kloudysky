@@ -50,6 +50,10 @@ $font-family-sans-serif: "Inter";
   z-index: -1;
 }
 
+.hideme {
+  opacity: 0;
+}
+
 @media (min-width: 992px) {
   .navbar-expand-lg .navbar-nav .nav-link {
     padding-right: 1.5rem;

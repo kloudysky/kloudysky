@@ -1,22 +1,19 @@
 .contact-section {
+  height: 60vh;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
 .contact-cta-detail {
-  width: 500px;
+  max-width: 500px;
   text-align: center;
 }
 
 .cta-btn {
   height: 60px;
   width: 140px;
-  //   border: 1px solid #414040;
-  //   color: #414040;
-  //   background: none;
   font-size: 15px;
-  //   border-radius: 3px;
 }
 
 .contact-footer {

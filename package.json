@@ -1,0 +1,20 @@
+{
+  "name": "kloudysky1.1",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/kloudysky/kloudysky.git",
+  "author": "Adam Kamboj <kamboj.adam@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "parcel ./src/index.html",
+    "prebuild": "npx rimraf build",
+    "build": "parcel build --public-url ./ ./src/index.html --experimental-scope-hoisting --out-dir build"
+  },
+  "dependencies": {
+    "@popperjs/core": "^2.9.2",
+    "bootstrap": "^5.0.1"
+  },
+  "devDependencies": {
+    "sass": "^1.35.1"
+  }
+}

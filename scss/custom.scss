@@ -1,20 +1,58 @@
-// 1. Include functions first (so you can manipulate colors, SVGs, calc, etc)
-@import "../node_modules/bootstrap/scss/functions";
-
-// 2. Include any default variable overrides here
 $body-bg: #ed944d;
 $body-color: rgb(64, 64, 64);
+$dark: rgb(64, 64, 64);
+$font-family-sans-serif: "Inter", sans-serif;
 
-// 3. Include remainder of required Bootstrap stylesheets
-@import "../node_modules/bootstrap/scss/variables";
-@import "../node_modules/bootstrap/scss/mixins";
+@import "../node_modules/bootstrap/scss/bootstrap";
+@import "./sidenav.scss";
+@import "./hero.scss";
+@import "./projects.scss";
+@import "./about.scss";
+@import "./contact.scss";
 
-// 4. Include any optional Bootstrap components as you like
-@import "../node_modules/bootstrap/scss/root";
-@import "../node_modules/bootstrap/scss/reboot";
-@import "../node_modules/bootstrap/scss/type";
-@import "../node_modules/bootstrap/scss/images";
-@import "../node_modules/bootstrap/scss/containers";
-@import "../node_modules/bootstrap/scss/grid";
+.navbar-collapse {
+  justify-content: flex-end;
+  margin-right: 100px;
+}
 
-// 5. Add additional custom code here
+.navbar {
+  font-family: "Space Mono", monospace;
+}
+
+.navbar-orange {
+  background-color: #ed944d;
+}
+
+.nav-btn-resume {
+  text-decoration: none;
+  display: block;
+  padding: 0.5rem 1rem;
+  border: 1px solid #414040;
+  color: #414040;
+  cursor: pointer;
+  border-radius: 3px;
+  padding-right: 1.5rem;
+  padding-left: 1.5rem;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out;
+}
+
+.scrollspy-top {
+  height: 70px;
+}
+
+.hero-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  outline: none;
+  opacity: 0.5;
+  z-index: -1;
+}
+
+@media (min-width: 992px) {
+  .navbar-expand-lg .navbar-nav .nav-link {
+    padding-right: 1.5rem;
+    padding-left: 1.5rem;
+  }
+}

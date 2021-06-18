@@ -77,7 +77,7 @@
   align-items: center;
 }
 
-.card-img {
+.desktop-card-img {
   width: 100%;
   object-fit: cover;
 }
@@ -140,18 +140,36 @@
 }
 
 //mobile cards
+.mobile-card-img {
+  min-height: 240px;
+}
+
 .card-img-overlay {
-  background-color: rgba(64, 64, 64, 0.6);
+  background-color: rgba(64, 64, 64, 0.7);
   display: flex;
   flex-direction: column;
   justify-content: center;
+  max-height: 500px;
 }
 
-.mobile-card-img {
+.mobile-card-title {
+  font-size: 25px;
+}
+
+.mobile-card-text {
+  color: #d6d6d6;
+  font-size: 14px;
 }
 
 .mobile-techstack {
   font-family: "Space Mono", monospace;
+  font-size: 14px;
+  color: #d6d6d6;
+}
+
+.mobile-project-links-btn {
+  font-size: 20px;
+  margin-right: 20px;
 }
 
 @media only screen and (max-width: 770px) {

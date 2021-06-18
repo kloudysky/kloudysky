@@ -144,11 +144,56 @@ const tick = () => {
 
 tick();
 
+//tooltips
 var tooltipTriggerList = [].slice.call(
   document.querySelectorAll('[data-bs-toggle="tooltip"]')
 );
 var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
   return new bootstrap.Tooltip(tooltipTriggerEl);
+});
+
+//copy email tooltip
+$(window).on("load", function () {
+  $("#static-email").tooltip();
+
+  $("#static-email").on("click", function () {
+    var r = document.createRange();
+    r.selectNode(document.getElementById("static-email"));
+    window.getSelection().removeAllRanges();
+    window.getSelection().addRange(r);
+    try {
+      const success = document.execCommand("copy");
+      if (success) {
+        $("#static-email").trigger("copied", ["Copied!"]);
+        window.getSelection().removeAllRanges();
+      } else {
+        $("#static-email").trigger("copied", ["Copy with Ctrl-c"]);
+        window.getSelection().removeAllRanges();
+      }
+    } catch (err) {
+      $("#static-email").trigger("copied", ["Copy with Ctrl-c"]);
+      window.getSelection().removeAllRanges();
+    }
+  });
+
+  // Handler for updating the tooltip message.
+  $("#static-email").on("copied", function (event, message) {
+    // $(this)
+    //   .attr("title", message)
+    //   .tooltip("fixTitle")
+    //   .tooltip("show")
+    //   .attr("title", "Copy to Clipboard")
+    //   .tooltip("fixTitle");
+    //   console.log("oppied");
+    //   $('[data-bs-toggle="tooltip"]').tooltip();
+    //   $("#static-email").tooltip();
+    //   $("#static-email").attr("data-bs-original-title", "New Tooltip Title");
+    //   document
+    //     .getElementById("static-email")
+    //     .setAttribute("data-bs-original-title", "Copied!");
+    //   $("#static-email").attr("data-bs-original-title", "New Tooltip Title");
+    //   document.getElementById("static-email").setAttribute("title", "Copied!");
+  });
 });
 
 //fade in on scroll

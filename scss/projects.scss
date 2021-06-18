@@ -88,10 +88,11 @@
 
 .card-techstack {
   font-family: "Space Mono", monospace;
-  margin-top: 40px;
+  margin-top: 3px;
 }
 
 .project-details-odd {
+  margin-bottom: 40px;
   background-color: #62706e;
   height: auto;
   border-radius: 3px;
@@ -102,6 +103,7 @@
 }
 
 .project-details-even {
+  margin-bottom: 40px;
   background-color: #62706e;
   height: auto;
   border-radius: 3px;

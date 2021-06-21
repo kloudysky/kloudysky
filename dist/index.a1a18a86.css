@@ -10181,6 +10181,9 @@ textarea.form-control-lg {
 .card a {
   color: #bbbbbb;
 }
+.strife-card {
+  margin-bottom: 100px;
+}
 .card-title {
   margin-bottom: 20px;
 }

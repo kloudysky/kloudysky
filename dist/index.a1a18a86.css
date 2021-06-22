@@ -10106,6 +10106,7 @@ textarea.form-control-lg {
 }
 .hero-section {
   height: 100vh;
+  min-height: 660px;
 }
 .hero-text {
   font-weight: 500;
@@ -10274,6 +10275,16 @@ textarea.form-control-lg {
 @media only screen and (max-width: 770px) {
   .projects-desktop {
     display: none;
+  }
+}
+@media only screen and (max-width: 550px) {
+  .card {
+    height: 325px;
+  }
+}
+@media only screen and (max-width: 355px) {
+  .card {
+    height: 375px;
   }
 }
 @media only screen and (min-width: 771px) {

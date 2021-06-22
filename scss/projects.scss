@@ -184,6 +184,18 @@
   }
 }
 
+@media only screen and (max-width: 550px) {
+  .card {
+    height: 325px;
+  }
+}
+
+@media only screen and (max-width: 355px) {
+  .card {
+    height: 375px;
+  }
+}
+
 @media only screen and (min-width: 771px) {
   .projects-mobile {
     display: none;

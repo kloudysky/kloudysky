@@ -10,12 +10,6 @@
     "build": "parcel build --public-url ./ ./src/index.html --dist-dir build",
     "start": "parcel ./build/index.html"
   },
-  "staticFiles": {
-    "staticPath": [
-      ".well-known/acme-challenge",
-      "public"
-    ]
-  },
   "engines": {
     "node": "15.11.0"
   },
@@ -23,7 +17,6 @@
     "@popperjs/core": "^2.9.2",
     "bootstrap": "^5.0.1",
     "parcel": "^2.0.0-beta.2",
-    "parcel-bundler": "^1.12.5",
     "three": "^0.129.0"
   },
   "devDependencies": {

@@ -11,8 +11,7 @@
     "start": "parcel ./build/index.html"
   },
   "staticFiles": {
-      "staticPath": "public",
-      "watcherGlob": "**"
+      "staticPath": ".well-known"
   },
   "engines": {
     "node": "15.11.0"

@@ -10,6 +10,10 @@
     "build": "parcel build --public-url ./ ./src/index.html --dist-dir build",
     "start": "parcel ./build/index.html"
   },
+  "staticFiles": {
+      "staticPath": "public",
+      "watcherGlob": "**"
+  },
   "engines": {
     "node": "15.11.0"
   },
@@ -22,6 +26,7 @@
   "devDependencies": {
     "@parcel/transformer-sass": "2.0.0-beta.2",
     "cssnano": "^5.0.6",
+    "parcel-plugin-static-files-copy": "^2.6.0",
     "postcss": "^8.2.15",
     "sass": "^1.35.1"
   }

@@ -11,7 +11,7 @@
     "start": "parcel ./build/index.html"
   },
   "staticFiles": {
-      "staticPath": [".well-known/acme-challenge"]
+      "staticPath": [".well-known/acme-challenge", "public"]
   },
   "engines": {
     "node": "15.11.0"

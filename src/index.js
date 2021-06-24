@@ -208,7 +208,7 @@ $(window).on("load", function () {
 
       /* If the object is completely visible in the window, fade it it */
       if (bottom_of_window > bottom_of_object) {
-        $(this).animate({ opacity: "1" }, 300);
+        $(this).animate({ opacity: "1" }, 400);
       }
     });
   });

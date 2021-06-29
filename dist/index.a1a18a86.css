@@ -10042,7 +10042,7 @@ textarea.form-control-lg {
 .static-email-link {
   position: fixed;
   bottom: 0;
-  right: 25px;
+  right: 40px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -10052,7 +10052,8 @@ textarea.form-control-lg {
   font-family: "Space Mono", monospace;
   font-weight: 300;
   font-size: 15px;
-  margin-bottom: 100px;
+  margin-bottom: 110px;
+  margin-left: 3px;
   color: #414040;
   cursor: pointer;
   transform: rotate(90deg);
@@ -10069,7 +10070,7 @@ textarea.form-control-lg {
 .static-social-icons {
   position: fixed;
   bottom: 0;
-  left: 25px;
+  left: 40px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -10078,7 +10079,7 @@ textarea.form-control-lg {
   -webkit-font-smoothing: antialiased;
   color: #414040;
   font-size: 25px;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
   cursor: pointer;
   -webkit-transition: color 2s ease-in-out;
   -moz-transition: color 2s ease-in-out;
@@ -10108,9 +10109,11 @@ textarea.form-control-lg {
   height: 100vh;
   min-height: 660px;
 }
-.hero-text {
-  font-weight: 500;
-  font-size: 17px;
+.hero-text h1, .hero-text .h1 {
+  font-size: 60px;
+}
+.hero-text h2, .hero-text .h2 {
+  font-size: 50px;
 }
 .btn-hero {
   font-family: "Space Mono", monospace;

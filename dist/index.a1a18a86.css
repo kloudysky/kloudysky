@@ -10182,9 +10182,6 @@ textarea.form-control-lg {
 .card a {
   color: #bbbbbb;
 }
-.strife-card {
-  margin-bottom: 100px;
-}
 .card-title {
   margin-bottom: 20px;
 }
@@ -10279,12 +10276,12 @@ textarea.form-control-lg {
 }
 @media only screen and (max-width: 550px) {
   .card {
-    height: 325px;
+    height: 350px;
   }
 }
 @media only screen and (max-width: 355px) {
   .card {
-    height: 375px;
+    height: 400px;
   }
 }
 @media only screen and (min-width: 771px) {
@@ -10295,6 +10292,13 @@ textarea.form-control-lg {
 .about-content {
   font-size: 17px;
   font-weight: 400;
+  min-height: 60vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.about-content p {
+  font-size: 20px;
 }
 .about-img-container {
   display: flex;
@@ -10307,7 +10311,7 @@ textarea.form-control-lg {
   box-shadow: 5px 5px 29px -4px #000000;
 }
 .contact-section {
-  height: 60vh;
+  height: 65vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -10334,6 +10338,9 @@ textarea.form-control-lg {
   margin: 0 auto;
   font-family: "Roboto Mono", monospace;
   font-weight: 400;
+}
+.hideme-contact {
+  opacity: 0;
 }
 .navbar-collapse {
   justify-content: flex-end;

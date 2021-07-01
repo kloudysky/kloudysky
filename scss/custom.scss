@@ -98,7 +98,11 @@ $font-family-sans-serif: "Inter";
   width: 26px;
   left: 4px;
   bottom: 4px;
-  background-color: white;
+  // background-color: white;
+  background-image: url("../assets/us-round.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   -webkit-transition: 0.4s;
   transition: 0.4s;
 }
@@ -115,6 +119,10 @@ input:checked + .slider:before {
   -webkit-transform: translateX(26px);
   -ms-transform: translateX(26px);
   transform: translateX(26px);
+}
+
+input:not(:checked) + .slider:before {
+  background-image: url("../assets/kr-round.png");
 }
 
 /* Rounded sliders */

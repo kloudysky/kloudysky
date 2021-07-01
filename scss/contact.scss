@@ -5,9 +5,18 @@
   align-items: center;
 }
 
+.contact-header-cta-text {
+  h1 {
+    font-size: 55px;
+  }
+}
+
 .contact-cta-detail {
-  max-width: 500px;
+  max-width: 600px;
   text-align: center;
+  p {
+    font-size: 18px;
+  }
 }
 
 .cta-btn {

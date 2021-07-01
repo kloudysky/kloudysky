@@ -10109,12 +10109,6 @@ textarea.form-control-lg {
   height: 100vh;
   min-height: 660px;
 }
-.hero-text h1, .hero-text .h1 {
-  font-size: 60px;
-}
-.hero-text h2, .hero-text .h2 {
-  font-size: 50px;
-}
 .btn-hero {
   font-family: "Space Mono", monospace;
   border-radius: 3px;
@@ -10127,6 +10121,17 @@ textarea.form-control-lg {
 .hero-dev-icon {
   font-size: 40px;
   margin-right: 30px;
+}
+@media (min-width: 992px) {
+  .hero-text h1, .hero-text .h1 {
+    font-size: 60px;
+  }
+  .hero-text h2, .hero-text .h2 {
+    font-size: 50px;
+  }
+  .hero-text p {
+    font-size: 18px;
+  }
 }
 .separator {
   display: flex;
@@ -10319,9 +10324,15 @@ textarea.form-control-lg {
   flex-direction: column;
   align-items: center;
 }
+.contact-header-cta-text h1, .contact-header-cta-text .h1 {
+  font-size: 55px;
+}
 .contact-cta-detail {
-  max-width: 500px;
+  max-width: 600px;
   text-align: center;
+}
+.contact-cta-detail p {
+  font-size: 18px;
 }
 .cta-btn {
   height: 60px;
@@ -10385,7 +10396,7 @@ textarea.form-control-lg {
   width: 38px;
 }
 .lang-switch-container {
-  margin-left: 70px;
+  margin-left: 100px;
   display: flex;
   align-items: center;
   justify-content: center;

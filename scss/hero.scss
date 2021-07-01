@@ -3,16 +3,6 @@
   min-height: 660px;
 }
 
-.hero-text {
-  h1 {
-    font-size: 60px;
-  }
-
-  h2 {
-    font-size: 50px;
-  }
-}
-
 .btn-hero {
   font-family: "Space Mono", monospace;
   border-radius: 3px;
@@ -27,4 +17,20 @@
 .hero-dev-icon {
   font-size: 40px;
   margin-right: 30px;
+}
+
+@media (min-width: 992px) {
+  .hero-text {
+    h1 {
+      font-size: 60px;
+    }
+
+    h2 {
+      font-size: 50px;
+    }
+
+    p {
+      font-size: 18px;
+    }
+  }
 }

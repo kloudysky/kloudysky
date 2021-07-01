@@ -611,6 +611,30 @@ $(window).on("load", function () {
     });
   });
 });
+// language swtich
+// $("[lang]").hide(); // hide all lang attributes on start.
+// $('[lang="en"]').show(); // show just Korean text (you can change it)
+$("#language-switch").on("change", function () {
+  // put onchange event when user select option from select
+  const language = document.getElementById("language-switch");
+  // var lang = this.checked(); // decide which language to display using switch case. The rest is obvious (i think)
+  switch (language.checked) {
+    case true:
+      console.log("checkbox", language.checked);
+      $(".eng").show();
+      $(".kor").hide();
+      break;
+    case false:
+      console.log("checkbox", language);
+      $(".eng").hide();
+      $(".kor").show();
+      break;
+    default:
+      console.log("checkbox", language);
+      $(".eng").hide();
+      $(".kor").show();
+  }
+});
 
 },{"bootstrap":"2wmtg","three":"1lq1c"}],"2wmtg":[function(require,module,exports) {
 var define;

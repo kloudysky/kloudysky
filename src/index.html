@@ -138,7 +138,15 @@
         "
       >
         <div class="container-fluid">
-          <a class="navbar-brand" href="#"></a>
+          <!-- <a class="navbar-brand" href="#"></a> -->
+          <div class="lang-switch-container">
+          <img class="lang-flag" src="../assets/kr-round.png" alt="">
+          <label class="switch">
+            <input id="language-switch" type="checkbox" checked />
+            <span class="slider round"></span>
+          </label>
+          <img class="lang-flag" src="../assets/us-round.png" alt="">
+          </div>
           <button
             class="navbar-toggler"
             type="button"
@@ -153,24 +161,37 @@
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav">
               <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="#home">Home</a>
+                <a class="nav-link eng" aria-current="page" href="#home"
+                  >Home</a
+                >
+                <a class="nav-link kor" aria-current="page" href="#home">홈</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#projects">Projects</a>
+                <a class="nav-link eng" href="#projects">Projects</a>
+                <a class="nav-link kor" href="#projects">작업</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#about">About</a>
+                <a class="nav-link eng" href="#about">About</a>
+                <a class="nav-link kor" href="#about">나</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#contact">Contact</a>
+                <a class="nav-link eng" href="#contact">Contact</a>
+                <a class="nav-link kor" href="#contact">연락처</a>
               </li>
               <li class="nav-item">
                 <a
                   id="nav-resume-btn"
                   target="_blank"
-                  class="btn-outline-dark nav-btn-resume"
+                  class="btn-outline-dark nav-btn-resume eng"
                   href="../assets/resume.pdf"
                   >Resume</a
+                >
+                <a
+                  id="nav-resume-btn"
+                  target="_blank"
+                  class="btn-outline-dark nav-btn-resume kor"
+                  href="../assets/resume.pdf"
+                  >이력서</a
                 >
               </li>
             </ul>
@@ -195,14 +216,22 @@
             <div class="col-md-9">
               <div id="home" class="scrollspy-top"></div>
               <div class="hero-text">
-                <h5 class="mb-3">Hi!</h5>
-                <h1 class="fw-bold">I'm Adam</h1>
-                <h2>I like to write code and build things</h2>
-                <p class="mt-3 col-md-8">
+                <h5 class="mb-3 eng">Hi!</h5>
+                <h5 class="mb-3 kor">안녕하새요</h5>
+                <h1 class="fw-bold eng">I'm Adam</h1>
+                <h1 class="fw-bold kor">저는 아담입니다</h1>
+                <h2 class="eng">I like to write code and build things</h2>
+                <h2 class="kor">저는 코딩과 프로그램 만들기를 좋아합니다</h2>
+                <p class="mt-3 col-md-8 eng">
                   I'm a New York based software engineer who specializes in
                   building full-stack applications. Oh, and thanks to my
                   incoherent developement background, I've become pretty good at
                   debugging and figuring out how things work.
+                </p>
+                <p class="mt-3 col-md-8 kor">
+                  저는 뉴욕에 살고있는 풀스택 앱에 전문화된 개발자입니다. 아,
+                  그리고 저의 일관되지 않은 경험을 통해 배운 바 디버깅과 일
+                  처리를 꽤 잘 해낼 수 있습니다.
                 </p>
               </div>
               <div class="hero-dev-icons">
@@ -213,8 +242,11 @@
                 <i class="fab fa-git-alt hero-dev-icon"></i>
               </div>
               <a href="mailto: kamboj.adam@gmail.com"
-                ><button class="btn btn-outline-dark btn-hero mt-5">
+                ><button class="btn btn-outline-dark btn-hero mt-5 eng">
                   Get In Touch
+                </button></a
+                ><button class="btn btn-outline-dark btn-hero mt-5 kor">
+                  연락하기
                 </button></a
               >
             </div>
@@ -227,7 +259,10 @@
           <div id="projects" class="scrollspy-top"></div>
           <!-- DESKTOP -->
           <div class="mb-5">
-            <div class="right-separator"><h1>Some Things I've Built</h1></div>
+            <div class="right-separator">
+              <h1 class="eng">Some Things I've Built</h1>
+              <h1 class="kor">제가 개발한 것들</h1>
+            </div>
           </div>
           <div class="projects-desktop">
             <!-- ODD CARD -->
@@ -243,11 +278,16 @@
                 <div class="col-md-5">
                   <div class="card-body card-body-odd">
                     <h2 class="card-title fw-bold">Strife</h2>
-                    <p class="card-text project-details-odd">
+                    <p class="card-text project-details-odd eng">
                       A full-stack SPA clone of
                       <a target="_blank" href="https://discord.com">Discord</a>.
                       Create channels within servers to chat with friends. You
                       can also create DM's and group DM's.
+                    </p>
+                    <p class="card-text project-details-odd kor">
+                      <a href="https://discord.com">Discord</a>의 풀스택 복제품.
+                      서버 내에 채팅을 위한 채널을 만드세요. 개인 또는 단체 DM도
+                      만들 수 있습니다.
                     </p>
                     <p class="card-text card-techstack">
                       Rails Postgres React Redux ActionCable
@@ -275,12 +315,18 @@
                 <div class="col-md-5">
                   <div class="card-body">
                     <h2 class="card-title fw-bold">Smartphone Car</h2>
-                    <p class="card-text project-details-even">
+                    <p class="card-text project-details-even eng">
                       Smartphone Car is a Vanilla JS driving simulator that
                       transforms your phone into a gyroscope-based controller.
                       It creates a unique connection between your phone and the
                       computer using Socket.IO and listens for movement via the
                       DeviceMotion API
+                    </p>
+                    <p class="card-text project-details-even kor">
+                      Smartphone Car는 당신의 폰을 자이로스콥 컨트롤러로
+                      바꿔주는 바닐라 JS 운전 시뮬레이터입니다. Socket.IO를 통해
+                      폰과 컴퓨터 사이를 특수하게 연결해주고 DeviceMotion API를
+                      이용해 움직임을 감지합니다.
                     </p>
                     <p class="card-text card-techstack">
                       JavaScript Three.JS Socket.IO Express
@@ -324,13 +370,20 @@
                 <div class="col-md-5">
                   <div class="card-body card-body-odd">
                     <h2 class="card-title fw-bold">Reddit Lite</h2>
-                    <p class="card-text project-details-odd">
+                    <p class="card-text project-details-odd eng">
                       There's a lot more to this app that goes on under the
                       hood. On the frontend is a lite clone of Reddit. Behind
                       the scenes there is a GraphQL server using TypeScript with
                       Type-GraphQL as the GraphQL schema. Query/mutation
                       requests, caching and SSR with URQL. Cursor pagination and
                       more. Checking out the repo!
+                    </p>
+                    <p class="card-text project-details-odd kor">
+                      이 앱에는 더 많은것들이 담겨있습니다. 겉보기엔 Reddit의
+                      복제품이지만 알고보면 GraphQL schema로 Type-GraphOL을 TypeScript을 사용한 GraphQL 서버가 있습니다.
+                      쿼리/뮤테이션 리퀘스트, 캐싱 그리고 URQL.
+                      커서 페이징, 그 외에도 다양한 기능이
+                      숨겨져 있습니다. GitHub을 확인해보세요!
                     </p>
                     <p class="card-text card-techstack">
                       TypeScript TypeORM GraphQL URQL Redis
@@ -361,12 +414,18 @@
                 <div class="col-md-5">
                   <div class="card-body">
                     <h2 class="card-title fw-bold">Blockup</h2>
-                    <p class="card-text project-details-even">
-                      Here, I Managed a team of 3 engineers to meet all
-                      milestone deadlines while ensuring git workflow best
-                      practices. Blockup is communication MERN app that enforces
+                    <p class="card-text project-details-even eng">
+                      Blockup is communication MERN app that enforces
                       2FA after sign up and allows users to chat, talk, and
-                      video call other users or groups.
+                      video call other users or groups. I Managed a team of 3 engineers to meet all
+                      milestone deadlines while ensuring git workflow best
+                      practices. 
+                    </p>
+                    <p class="card-text project-details-even kor">
+                      Blockup은 커뮤니케이션 MERN 앱으로 가입 후 2FA를 강화하고
+                      사용자들이 문자, 음성, 그리고 비디오로 대화할 수
+                      있게합니다. 저는 세명의 엔지니어들이 최선을 다하면서도 주어진
+                      기간 내에 목적을 달성하도록 이끌었습니다.
                     </p>
                     <p class="card-text card-techstack">
                       MongoDB Express React Node
@@ -412,13 +471,20 @@
                 <div class="col-md-5">
                   <div class="card-body card-body-odd">
                     <h2 class="card-title fw-bold">KloudySky</h2>
-                    <p class="card-text project-details-odd">
+                    <p class="card-text project-details-odd eng">
                       You're currently scrolling through the first iteration of
                       my portfolio, built from the ground up by me. The design
                       for V1 was inspired by
                       <a href="https://brittanychiang.com/"
                         >Brittany Chiang's Portfolio</a
                       >. I am currently working on V2.
+                    </p>
+                    <p class="card-text project-details-odd kor">
+                      당신은 제가 처음 부터 끝까지 작업한 포트폴리오 첫번째
+                      버전을 보고계십니다. V1 디자인은
+                      <a href="https://brittanychiang.com/"
+                        >Brittany Chiang의 포트폴리오</a
+                      >에서 영감을 받았습니다. 현재 V2를 작업중입니다
                     </p>
                     <p class="card-text card-techstack">
                       Three.JS Bootstrap FontAwesome HTML/CSS
@@ -445,11 +511,15 @@
               <div class="row g-0">
                 <div class="col-md-5">
                   <div class="card-body">
-                    <h2 class="card-title fw-bold">PathFindr - In Progress</h2>
-                    <p class="card-text project-details-even">
+                    <h2 class="card-title fw-bold eng">PathFindr - In Progress</h2>
+                    <h2 class="card-title fw-bold kor">PathFindr - 진행 중</h2>
+                    <p class="card-text project-details-even eng">
                       I'm currently working on a React app that creates a
                       visualization of how different algorithms find a path to a
                       target.
+                    </p>
+                    <p class="card-text project-details-even kor">
+                      저는 요즘 여러 알고리즘들이 어떻게 목표지점을 찾는지를 시각화 한 React app을 만들고 있습니다.
                     </p>
                     <p class="card-text card-techstack">JavaScript React</p>
                     <div class="project-links-even">
@@ -492,10 +562,15 @@
               <div class="card-img-overlay">
                 <div class="container">
                   <h5 class="card-title mobile-card-title fw-bold">Strife</h5>
-                  <p class="card-text mobile-card-text">
+                  <p class="card-text mobile-card-text eng">
                     A full-stack SPA clone of Discord. Create channels within
                     servers to chat with friends. You can also create DM's and
                     group DM's.
+                  </p>
+                  <p class="card-text mobile-card-text kor">
+                      Discord의 풀스택 복제품.
+                      서버 내에 채팅을 위한 채널을 만드세요. 개인 또는 단체 DM도
+                      만들 수 있습니다.
                   </p>
                   <p class="card-text mobile-techstack">
                     Rails Postgres React Redux ActionCable
@@ -534,12 +609,18 @@
                   <h5 class="card-title mobile-card-title fw-bold">
                     Smartphone Car
                   </h5>
-                  <p class="card-text mobile-card-text">
+                  <p class="card-text mobile-card-text eng">
                     Smartphone Car is a Vanilla JS driving simulator that
                     transforms your phone into a gyroscope-based controller. It
                     creates a unique connection between your phone and the
                     computer using Socket.IO and listens for movement via the
                     DeviceMotion API
+                  </p>
+                  <p class="card-text mobile-card-text kor">
+                    Smartphone Car는 당신의 폰을 자이로스콥 컨트롤러로
+                      바꿔주는 바닐라 JS 운전 시뮬레이터입니다. Socket.IO를 통해
+                      폰과 컴퓨터 사이를 특수하게 연결해주고 DeviceMotion API를
+                      이용해 움직임을 감지합니다.
                   </p>
                   <p class="card-text mobile-techstack">
                     JavaScript Three.JS Socket.IO Express
@@ -580,12 +661,19 @@
                   <h5 class="card-title mobile-card-title fw-bold">
                     Reddit Lite
                   </h5>
-                  <p class="card-text mobile-card-text">
+                  <p class="card-text mobile-card-text eng">
                     There's a lot more to this app that goes on under the hood.
                     On the frontend is a lite clone of Reddit. Behind the scenes
                     there is a GraphQL server. Query/mutation requests, caching
                     and SSR with URQL. Cursor pagination and more. Checking out
                     the repo! repo!
+                  </p>
+                  <p class="card-text mobile-card-text kor">
+                    이 앱에는 더 많은것들이 담겨있습니다. 겉보기엔 Reddit의
+                      복제품이지만 알고보면 GraphQL schema로 Type-GraphOL을 TypeScript을 사용한 GraphQL 서버가 있습니다.
+                      쿼리/뮤테이션 리퀘스트, 캐싱 그리고 URQL.
+                      커서 페이징, 그 외에도 다양한 기능이
+                      숨겨져 있습니다. GitHub을 확인해보세요!
                   </p>
                   <p class="card-text mobile-techstack">
                     TypeScript TypeORM GraphQL URQL Redis
@@ -625,12 +713,18 @@
               <div class="card-img-overlay">
                 <div class="container">
                   <h5 class="card-title mobile-card-title fw-bold">Blockup</h5>
-                  <p class="card-text mobile-card-text">
-                    Here, I Managed a team of 3 engineers to meet all milestone
-                    deadlines while ensuring git workflow best practices.
+                  <p class="card-text mobile-card-text eng">
                     Blockup is communication MERN app that enforces 2FA after
                     sign up and allows users to chat, talk, and video call other
                     users or groups.
+                    I Managed a team of 3 engineers to meet all milestone
+                    deadlines while ensuring git workflow best practices.
+                  </p>
+                  <p class="card-text mobile-card-text kor">
+                    Blockup은 커뮤니케이션 MERN 앱으로 가입 후 2FA를 강화하고
+                      사용자들이 문자, 음성, 그리고 비디오로 대화할 수
+                      있게합니다. 저는 세명의 엔지니어들이 최선을 다하면서도 주어진
+                      기간 내에 목적을 달성하도록 이끌었습니다.
                   </p>
                   <p class="card-text mobile-techstack">
                     MongoDB Express React Node
@@ -672,13 +766,20 @@
                   <h5 class="card-title mobile-card-title fw-bold">
                     KloudySky
                   </h5>
-                  <p class="card-text mobile-card-text">
+                  <p class="card-text mobile-card-text eng">
                     You're currently scrolling through the first iteration of my
                     portfolio, built from the ground up by me. The design for V1
                     was inspired by
                     <a href="https://brittanychiang.com/"
                       >Brittany Chiang's Portfolio</a
                     >. I am currently working on V2.
+                  </p>
+                  <p class="card-text mobile-card-text kor">
+                    당신은 제가 처음 부터 끝까지 작업한 포트폴리오 첫번째
+                      버전을 보고계십니다. V1 디자인은
+                      <a href="https://brittanychiang.com/"
+                        >Brittany Chiang의 포트폴리오</a
+                      >에서 영감을 받았습니다. 현재 V2를 작업중입니다
                   </p>
                   <p class="card-text mobile-techstack">
                     Three.JS Bootstrap FontAwesome HTML/CSS
@@ -714,13 +815,19 @@
               />
               <div class="card-img-overlay">
                 <div class="container">
-                  <h5 class="card-title mobile-card-title fw-bold">
+                  <h5 class="card-title mobile-card-title fw-bold eng">
                     PathFindr - In Progress
                   </h5>
-                  <p class="card-text mobile-card-text">
+                  <h5 class="card-title mobile-card-title fw-bold kor">
+                    PathFindr - 진행 중
+                  </h5>
+                  <p class="card-text mobile-card-text eng">
                     I'm currently working on a React app that creates a
                     visualization of how different algorithms find a path to a
                     target.
+                  </p>
+                  <p class="card-text mobile-card-text kor">
+                    저는 요즘 여러 알고리즘들이 어떻게 목표지점을 찾는지를 시각화 한 React app을 만들고 있습니다.
                   </p>
                   <p class="card-text mobile-techstack">JavaScript React</p>
                   <div class="mobile-project-links">
@@ -757,23 +864,38 @@
         <div class="container hideme-contact">
           <div id="about" class="scrollspy-top"></div>
           <div class="mb-5">
-            <div class="left-separator"><h1>About Me</h1></div>
+            <div class="left-separator">
+              <h1 class="eng">About Me</h1>
+              <h1 class="kor">저에 대하여</h1>
+            </div>
           </div>
           <div class="row">
             <div class="col-md-2"></div>
             <div class="col-md-6 pb-5 pt-5 about-content">
-              <p>
+              <p class="eng">
                 Hi! My name is Adam and in the last 7 years, I’ve enjoyed the
                 thrill and challenge of bootstrapping my own startup, supporting
                 a promising angel funded startup and running a technical
                 recruiting agency. It’s been fun and I’ve learned more than I
                 ever expected.
               </p>
-              <p>
+              <p class="kor">
+                안녕하세요! 제 이름은 아담입니다. 지난 7년 간 저는 외부의 도움
+                없이 저만의 스타트업을 만드는 스릴과 도전을 즐겨왔습니다.
+                전망있는 앤젤 펀드 스타트업을 지원하고 개발자 리크루팅 회사를
+                운영했습니다. 그 과정은 매우 즐거웠고 예상외로 많은 것을 배웠습니다.
+              </p>
+              <p class="eng">
                 I've now made the shift to focus on software enigneering. To
                 hone in on my coding skills, I studied full-stack development at
                 the highly selective App Academy where I lived and breathed code
                 for over 80 hours a week for about 5 months.
+              </p>
+              <p class="kor">
+                이제는 소프트웨어 엔지니어링에 집중해 보려고 합니다. 제 코딩
+                기술을 발전시키기 위해 경쟁이 치열한 App Academy에서 풀스택
+                개발을 공부했습니다. 지난 5개월간 주 80시간 씩 밤낮으로 코딩을
+                연습했습니다.
               </p>
             </div>
             <div class="col-md-3 align-self-center about-img-container">
@@ -789,30 +911,43 @@
           <div id="contact" class="scrollspy-top"></div>
           <div class="contact-section mt-5">
             <div class="contact-header">
-              <h5>What's Next?</h5>
+              <h5 class="eng">What's Next?</h5>
+              <h5 class="kor">그 다음은?</h5>
             </div>
             <div class="contact-header-cta-text">
-              <h1 class="fw-bolder mb-3">Get In Touch</h1>
+              <h1 class="fw-bolder mb-3 eng">Get In Touch</h1>
+              <h1 class="fw-bolder mb-3 kor">연락하기</h1>
             </div>
             <div class="contact-cta-detail mb-2">
-              <p>
+              <p class="eng">
                 I'm currently looking for new opportunities and my inbox is
                 always open. Whether you have a question or just want to say hi,
-                I'll be sure to get back to you!
+                I'd love to hear from you!
+              </p>
+              <p class="kor">
+                저는 지금 새로운 기회를 기다리고 있습니다. 제 수신함은
+                항상 열려있으니 궁금한 점이 있거나 저와 이야기를 하고싶으시면
+                언제든 연락주세요!
               </p>
               <div>
                 <a href="mailto: kamboj.adam@gmail.com"
                   ><button
-                    class="btn btn-outline-dark btn-hero mt-5 cta-btn mb-5 mt-3"
+                    class="btn btn-outline-dark btn-hero mt-5 cta-btn mb-5 mt-3 eng"
                   >
                     Connect
+                  </button>
+                  <button
+                    class="btn btn-outline-dark btn-hero mt-5 cta-btn mb-5 mt-3 kor"
+                  >
+                    연락하기
                   </button></a
                 >
               </div>
             </div>
           </div>
           <div class="contact-footer mt-5">
-            <p>Lovingly made in NYC</p>
+            <p class="eng">Lovingly made in NYC</p>
+            <p class="kor">정성을 담아 NYC에서 만들었습니다.</p>
           </div>
         </div>
       </div>

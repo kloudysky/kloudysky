@@ -10252,7 +10252,7 @@ textarea.form-control-lg {
   cursor: pointer;
 }
 .mobile-card-img {
-  min-height: 240px;
+  min-height: 100%;
 }
 .card-img-overlay {
   background-color: rgba(64, 64, 64, 0.8);

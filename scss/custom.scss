@@ -37,6 +37,24 @@ $font-family-sans-serif: "Inter";
     border-color 0.15s ease-in-out;
 }
 
+.navbar-collapse.collapse.show:before {
+  display: flex;
+  text-align: end;
+  margin-right: 7px;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.navbar-collapse.collapse.show {
+  display: flex;
+  text-align: end;
+  margin-right: 7px;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+}
+
 .scrollspy-top {
   height: 70px;
 }

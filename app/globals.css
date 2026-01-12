@@ -1,0 +1,100 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --grid-color: rgba(255, 255, 255, 0.6);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  overflow: hidden;
+}
+
+/* 3D Grid Styles */
+.grid-container {
+  perspective: 600px;
+  perspective-origin: 50% 40%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 50vh;
+  overflow: hidden;
+  mask-image: linear-gradient(to bottom, transparent 0%, black 15%, black 100%);
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 15%, black 100%);
+  z-index: 1;
+}
+
+.grid {
+  position: absolute;
+  width: 300%;
+  height: 300%;
+  left: -100%;
+  bottom: -50%;
+  transform-style: preserve-3d;
+  transform: rotateX(75deg);
+  animation: grid-move 20s linear infinite;
+}
+
+.grid-line {
+  position: absolute;
+  height: 3px;
+  background: var(--grid-color);
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.4);
+}
+
+.grid-line-vertical {
+  position: absolute;
+  width: 3px;
+  background: var(--grid-color);
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.4);
+}
+
+@keyframes grid-move {
+  0% {
+    transform: rotateX(75deg) translateY(0);
+  }
+  100% {
+    transform: rotateX(75deg) translateY(80px);
+  }
+}
+
+/* Starfield - Subtle but visible */
+.starfield {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image:
+    radial-gradient(circle at 10% 20%, rgba(255,255,255,0.5) 0.5px, transparent 0.5px),
+    radial-gradient(circle at 80% 80%, rgba(255,255,255,0.4) 0.5px, transparent 0.5px),
+    radial-gradient(circle at 50% 50%, rgba(255,255,255,0.45) 0.5px, transparent 0.5px),
+    radial-gradient(circle at 90% 10%, rgba(255,255,255,0.5) 0.5px, transparent 0.5px),
+    radial-gradient(circle at 20% 90%, rgba(255,255,255,0.4) 0.5px, transparent 0.5px),
+    radial-gradient(circle at 70% 30%, rgba(255,255,255,0.55) 0.5px, transparent 0.5px),
+    radial-gradient(circle at 30% 60%, rgba(255,255,255,0.4) 0.5px, transparent 0.5px),
+    radial-gradient(circle at 95% 45%, rgba(255,255,255,0.45) 0.5px, transparent 0.5px),
+    radial-gradient(circle at 15% 70%, rgba(255,255,255,0.5) 0.5px, transparent 0.5px),
+    radial-gradient(circle at 60% 15%, rgba(255,255,255,0.4) 0.5px, transparent 0.5px);
+  background-size: 300px 300px, 350px 350px, 400px 400px, 280px 280px,
+                   320px 320px, 380px 380px, 340px 340px, 360px 360px,
+                   290px 290px, 330px 330px;
+  background-position: 0 0, 40px 60px, 80px 120px, 120px 180px,
+                       20px 100px, 60px 140px, 100px 200px, 140px 40px,
+                       30px 80px, 70px 160px;
+  opacity: 0.6;
+}
+
+@keyframes twinkle {
+  0%, 100% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}

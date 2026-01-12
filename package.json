@@ -1,29 +1,42 @@
 {
-  "name": "kloudysky1.1",
+  "name": "kloudysky",
   "version": "1.0.0",
-  "repository": "https://github.com/kloudysky/kloudysky.git",
-  "author": "Adam Kamboj <kamboj.adam@gmail.com>",
-  "license": "MIT",
+  "description": "```sh npm create astro@latest -- --template minimal ```",
+  "main": "index.js",
   "scripts": {
-    "dev": "parcel ./src/index.html",
-    "prebuild": "npx rimraf build",
-    "build": "parcel build --public-url ./ ./src/index.html --dist-dir build",
-    "start": "parcel ./build/index.html"
+    "dev": "next dev --turbopack",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
   },
-  "engines": {
-    "node": "15.11.0"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kloudysky/kloudysky.git"
   },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kloudysky/kloudysky/issues"
+  },
+  "homepage": "https://github.com/kloudysky/kloudysky#readme",
   "dependencies": {
-    "@popperjs/core": "^2.9.2",
-    "bootstrap": "^5.0.1",
-    "parcel": "^2.0.0-beta.2",
-    "three": "^0.129.0"
+    "@types/three": "^0.182.0",
+    "geist": "^1.5.1",
+    "next": "^16.1.1",
+    "react": "^19.2.3",
+    "react-dom": "^19.2.3",
+    "three": "^0.182.0"
   },
   "devDependencies": {
-    "@parcel/transformer-sass": "2.0.0-beta.2",
-    "cssnano": "^5.0.6",
-    "parcel-plugin-static-files-copy": "^2.6.0",
-    "postcss": "^8.2.15",
-    "sass": "^1.35.1"
+    "@playwright/test": "^1.57.0",
+    "@types/node": "^25.0.6",
+    "@types/react": "^19.2.8",
+    "@types/react-dom": "^19.2.3",
+    "autoprefixer": "^10.4.23",
+    "playwright": "^1.57.0",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^3.4.19",
+    "typescript": "^5.9.3"
   }
 }

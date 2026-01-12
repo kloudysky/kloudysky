@@ -4,16 +4,16 @@
       *          ✦    .        ·
             .        *    ✦
    ·    *                        .
-          ╭─────────────────╮
-     ✦    │   kloudysky     │    *
-          ╰─────────────────╯
+          ╭───────────────────╮
+     ✦    │     kloudysky     │    *
+          ╰───────────────────╯
       .        ·    ✦            *
             *          .    ·
         ✦        .            ✦
                     ·
 ```
 
-building things that make life a little better
+`Building things that make life a little better.`
 
 ---
 

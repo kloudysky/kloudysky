@@ -1,13 +1,11 @@
 {
   "name": "kloudysky",
   "version": "1.0.0",
-  "description": "```sh npm create astro@latest -- --template minimal ```",
-  "main": "index.js",
+  "description": "Personal site for Cloud Ko. kloudysky.io",
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "start": "next start"
   },
   "repository": {
     "type": "git",
@@ -21,22 +19,19 @@
   },
   "homepage": "https://github.com/kloudysky/kloudysky#readme",
   "dependencies": {
-    "@types/three": "^0.182.0",
     "geist": "^1.5.1",
     "next": "^16.1.1",
     "react": "^19.2.3",
-    "react-dom": "^19.2.3",
-    "three": "^0.182.0"
+    "react-dom": "^19.2.3"
   },
   "devDependencies": {
-    "@playwright/test": "^1.57.0",
     "@types/node": "^25.0.6",
     "@types/react": "^19.2.8",
     "@types/react-dom": "^19.2.3",
     "autoprefixer": "^10.4.23",
-    "playwright": "^1.57.0",
     "postcss": "^8.5.6",
     "tailwindcss": "^3.4.19",
     "typescript": "^5.9.3"
-  }
+  },
+  "private": true
 }

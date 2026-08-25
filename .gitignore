@@ -30,3 +30,8 @@ mcp.json
 
 # jetbrains setting folder
 .idea/
+
+*.tsbuildinfo
+
+# design mocks, delete after launch
+mocks.html

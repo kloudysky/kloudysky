@@ -3,98 +3,87 @@
 @tailwind utilities;
 
 :root {
-  --grid-color: rgba(255, 255, 255, 0.6);
+  --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+html {
+  background: #08080a;
+  -webkit-text-size-adjust: 100%;
 }
 
-body {
-  overflow: hidden;
+::selection {
+  background: #ededed;
+  color: #000;
 }
 
-/* 3D Grid Styles */
-.grid-container {
-  perspective: 600px;
-  perspective-origin: 50% 40%;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 50vh;
-  overflow: hidden;
-  mask-image: linear-gradient(to bottom, transparent 0%, black 15%, black 100%);
-  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 15%, black 100%);
-  z-index: 1;
+/*
+ * One-shot entrance animations. Elements start visible and are only hidden once the
+ * inline head script confirms JavaScript can animate them back, so a failed script
+ * can never leave a blank page. RevealController unobserves each element the moment
+ * it fires, so nothing here repaints after it settles.
+ */
+.js .reveal {
+  opacity: 0;
+  transform: translateY(9px);
 }
 
-.grid {
-  position: absolute;
-  width: 300%;
-  height: 300%;
-  left: -100%;
-  bottom: -50%;
-  transform-style: preserve-3d;
-  transform: rotateX(75deg);
-  animation: grid-move 20s linear infinite;
+.js .reveal.in {
+  opacity: 1;
+  transform: none;
+  transition:
+    opacity 0.5s var(--ease) calc(var(--i, 0) * 55ms),
+    transform 0.5s var(--ease) calc(var(--i, 0) * 55ms);
 }
 
-.grid-line {
-  position: absolute;
-  height: 3px;
-  background: var(--grid-color);
-  box-shadow: 0 0 8px rgba(255, 255, 255, 0.4);
+/* The rail sequences its own children rather than arriving as one block. */
+.js .rail-lift > * {
+  opacity: 0;
+  transform: translateY(7px);
 }
 
-.grid-line-vertical {
-  position: absolute;
-  width: 3px;
-  background: var(--grid-color);
-  box-shadow: 0 0 8px rgba(255, 255, 255, 0.4);
+.js .rail-lift.in > * {
+  opacity: 1;
+  transform: none;
+  transition:
+    opacity 0.55s var(--ease),
+    transform 0.55s var(--ease);
 }
 
-@keyframes grid-move {
-  0% {
-    transform: rotateX(75deg) translateY(0);
+.js .rail-lift.in > *:nth-child(2) { transition-delay: 0.06s; }
+.js .rail-lift.in > *:nth-child(3) { transition-delay: 0.12s; }
+.js .rail-lift.in > *:nth-child(4) { transition-delay: 0.18s; }
+.js .rail-lift.in > *:nth-child(5) { transition-delay: 0.24s; }
+.js .rail-lift.in > *:nth-child(6) { transition-delay: 0.3s; }
+.js .rail-lift.in > *:nth-child(7) { transition-delay: 0.36s; }
+
+/* The single hero moment: the KloudySky mark draws itself once, on load. */
+.js .hero-mark path {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+}
+
+.js .rail-lift.in .hero-mark path {
+  stroke-dashoffset: 0;
+  transition: stroke-dashoffset 1s var(--ease) 0.1s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .js .reveal,
+  .js .rail-lift > * {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
   }
-  100% {
-    transform: rotateX(75deg) translateY(80px);
-  }
-}
 
-/* Starfield - Subtle but visible */
-.starfield {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background-image:
-    radial-gradient(circle at 10% 20%, rgba(255,255,255,0.5) 0.5px, transparent 0.5px),
-    radial-gradient(circle at 80% 80%, rgba(255,255,255,0.4) 0.5px, transparent 0.5px),
-    radial-gradient(circle at 50% 50%, rgba(255,255,255,0.45) 0.5px, transparent 0.5px),
-    radial-gradient(circle at 90% 10%, rgba(255,255,255,0.5) 0.5px, transparent 0.5px),
-    radial-gradient(circle at 20% 90%, rgba(255,255,255,0.4) 0.5px, transparent 0.5px),
-    radial-gradient(circle at 70% 30%, rgba(255,255,255,0.55) 0.5px, transparent 0.5px),
-    radial-gradient(circle at 30% 60%, rgba(255,255,255,0.4) 0.5px, transparent 0.5px),
-    radial-gradient(circle at 95% 45%, rgba(255,255,255,0.45) 0.5px, transparent 0.5px),
-    radial-gradient(circle at 15% 70%, rgba(255,255,255,0.5) 0.5px, transparent 0.5px),
-    radial-gradient(circle at 60% 15%, rgba(255,255,255,0.4) 0.5px, transparent 0.5px);
-  background-size: 300px 300px, 350px 350px, 400px 400px, 280px 280px,
-                   320px 320px, 380px 380px, 340px 340px, 360px 360px,
-                   290px 290px, 330px 330px;
-  background-position: 0 0, 40px 60px, 80px 120px, 120px 180px,
-                       20px 100px, 60px 140px, 100px 200px, 140px 40px,
-                       30px 80px, 70px 160px;
-  opacity: 0.6;
-}
-
-@keyframes twinkle {
-  0%, 100% {
-    opacity: 0.3;
+  .js .hero-mark path {
+    stroke-dashoffset: 0 !important;
+    transition: none !important;
   }
-  50% {
-    opacity: 0.5;
+
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
   }
 }

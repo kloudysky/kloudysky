@@ -19,6 +19,13 @@ export const metadata: Metadata = {
   description: intro.thesis,
   openGraph: { title, description: intro.thesis, url: '/', siteName: 'KloudySky', type: 'website' },
   twitter: { card: 'summary_large_image', title, description: intro.thesis },
+  icons: {
+    icon: [
+      { url: '/favicon-32.png', sizes: '32x32', type: 'image/png' },
+      { url: '/icon-192.png', sizes: '192x192', type: 'image/png' },
+    ],
+    apple: '/apple-touch-icon.png',
+  },
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {

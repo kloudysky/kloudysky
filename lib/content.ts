@@ -139,9 +139,16 @@ export const alsoBuilt = {
   names: ['note2bill', 'cibello', 'keptivo', 'PropelOps', 'bard', 'signal', 'rhythm'],
 } as const;
 
+/**
+ * Stored reversed, and reversed back at runtime. Splitting it into parts was not
+ * enough: the minifier constant-folded `${user}@${domain}` straight back into a
+ * complete address in the bundle. A minifier will not evaluate a runtime reverse,
+ * so no email-shaped string survives anywhere in the build. Do not "simplify" this.
+ */
+export const emailReversed = 'oi.yksyduolk@mada';
+
 export const contact = {
   followLabel: 'Come find me',
-  email: 'adam@kloudysky.io',
   socials: [
     { name: 'X', href: 'https://x.com/cloud_ko_', icon: 'x' },
     { name: 'Bluesky', href: 'https://bsky.app/profile/kloudysky.io', icon: 'bluesky' },
@@ -150,6 +157,5 @@ export const contact = {
   ],
 } satisfies {
   readonly followLabel: string;
-  readonly email: string;
   readonly socials: readonly { name: string; href: string; icon: SocialIconKey }[];
 };

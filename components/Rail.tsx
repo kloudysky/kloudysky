@@ -32,13 +32,6 @@ export default function Rail() {
       </p>
 
       <SocialLinks />
-
-      <a
-        href={`mailto:${contact.email}`}
-        className="mt-4 font-[family-name:var(--font-jetbrains-mono)] text-[12.5px] text-faint transition-colors hover:text-fg"
-      >
-        {contact.email}
-      </a>
     </aside>
   );
 }

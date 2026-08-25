@@ -13,7 +13,7 @@ export default function Feed() {
       {companies.map((company, companyIndex) => (
         <section key={company.name} className={companyIndex > 0 ? 'mt-9 sm:mt-11' : undefined}>
           <div className="reveal" style={{ '--i': revealIndex++ } as React.CSSProperties}>
-            <SectionLabel mark={company.mark} role={company.role}>
+            <SectionLabel mark={company.mark} role={company.role} meta={company.meta}>
               {company.name}
             </SectionLabel>
           </div>

@@ -19,6 +19,8 @@ export type Product = {
 export type Company = {
   readonly name: string;
   readonly role: string;
+  /** Legal structure, set where it says something the name does not. */
+  readonly meta: string | null;
   readonly mark: MarkKey | null;
   readonly products: readonly Product[];
 };
@@ -44,8 +46,9 @@ export const closing = {
 
 export const companies = [
   {
-    name: 'Aeon Entertainment',
+    name: 'Aeon Entertainment, Inc.',
     role: 'Founder & CEO',
+    meta: 'Delaware C Corp',
     mark: 'aeonEntertainment',
     products: [
       {
@@ -65,6 +68,7 @@ export const companies = [
   {
     name: 'Syntexa LLC',
     role: 'Founder',
+    meta: null,
     mark: null,
     products: [
       {

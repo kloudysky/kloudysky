@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import { contact, intro } from '@/lib/content';
 import CloudMark from './CloudMark';
 import SocialLinks from './SocialLinks';
@@ -6,11 +5,13 @@ import SocialLinks from './SocialLinks';
 export default function Rail() {
   return (
     <aside className="rail-lift flex flex-col border-b border-hair px-5 pb-6 pt-7 sm:sticky sm:top-0 sm:self-start sm:border-b-0 sm:border-r sm:px-8 sm:pb-9 sm:pt-11">
-      {/* The PNG is the no-JS and reduced-motion state; the canvas draws the same
-          thing on top once mounted, so there is no visible swap. */}
-      <div className="relative aspect-square w-[168px] touch-none select-none sm:w-full">
-        <Image src="/mark.png" alt="" width={512} height={512} priority className="h-full w-full" />
-        <CloudMark className="absolute inset-0 h-full w-full cursor-crosshair" />
+      {/*
+        mark.png is a CSS background, so the canvas is the only element in the box
+        and is unambiguously what you are looking at. Without JS the background
+        still shows; with JS the canvas covers it.
+      */}
+      <div className="relative aspect-square w-[168px] cursor-crosshair touch-none select-none bg-[url('/mark.png')] bg-contain bg-no-repeat sm:w-full">
+        <CloudMark className="absolute inset-0 h-full w-full" />
       </div>
 
       <p className="mt-5 text-[15px] font-semibold tracking-[-0.01em]">{intro.name}</p>

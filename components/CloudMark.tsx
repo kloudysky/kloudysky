@@ -78,7 +78,10 @@ export default function CloudMark({ className }: { className?: string }) {
     const canvas = ref.current;
     const ctx = canvas?.getContext('2d');
     if (!canvas || !ctx) return;
-    if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    /** Events go on the parent, not the canvas, so nothing can swallow them. */
+    const surface: HTMLElement = canvas.parentElement ?? canvas;
 
     const field = buildField();
     if (!field) return;
@@ -224,31 +227,42 @@ export default function CloudMark({ className }: { className?: string }) {
     const observer = new ResizeObserver(() => { setup(); paint(); });
     observer.observe(canvas);
 
-    const onMove = (e: PointerEvent) => {
-      if (e.pointerType !== 'mouse') return;
+    // Static render only; no listeners, no loop.
+    if (reduced) {
+      return () => observer.disconnect();
+    }
+
+    const at = (e: PointerEvent) => {
       const rect = canvas.getBoundingClientRect();
-      px = e.clientX - rect.left; py = e.clientY - rect.top; active = true; wake();
+      return { x: e.clientX - rect.left, y: e.clientY - rect.top };
+    };
+    const onMove = (e: PointerEvent) => {
+      const p = at(e);
+      px = p.x; py = p.y; active = true; wake();
     };
     const onLeave = () => { active = false; wake(); };
     const onUp = (e: PointerEvent) => {
-      const rect = canvas.getBoundingClientRect();
-      waves.push({
-        x: e.clientX - rect.left, y: e.clientY - rect.top,
-        t: performance.now(), k: 1 + charge * 2.4,
-      });
+      const p = at(e);
+      waves.push({ x: p.x, y: p.y, t: performance.now(), k: 1 + charge * 2.4 });
       charge = 0;
       wake();
     };
-    canvas.addEventListener('pointermove', onMove);
-    canvas.addEventListener('pointerleave', onLeave);
-    canvas.addEventListener('pointerup', onUp);
+    surface.addEventListener('pointermove', onMove);
+    surface.addEventListener('pointerenter', onMove);
+    surface.addEventListener('pointerdown', onMove);
+    surface.addEventListener('pointerleave', onLeave);
+    surface.addEventListener('pointercancel', onLeave);
+    surface.addEventListener('pointerup', onUp);
 
     return () => {
       if (raf !== null) cancelAnimationFrame(raf);
       observer.disconnect();
-      canvas.removeEventListener('pointermove', onMove);
-      canvas.removeEventListener('pointerleave', onLeave);
-      canvas.removeEventListener('pointerup', onUp);
+      surface.removeEventListener('pointermove', onMove);
+      surface.removeEventListener('pointerenter', onMove);
+      surface.removeEventListener('pointerdown', onMove);
+      surface.removeEventListener('pointerleave', onLeave);
+      surface.removeEventListener('pointercancel', onLeave);
+      surface.removeEventListener('pointerup', onUp);
     };
   }, []);
 

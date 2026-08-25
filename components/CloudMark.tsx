@@ -223,6 +223,12 @@ export default function CloudMark({ className }: { className?: string }) {
 
     setup();
     paint();
+    /*
+     * Drop the PNG fallback the moment the canvas has painted. Left in place it
+     * sits behind the canvas and fills the gaps that displaced dots leave, so the
+     * field reads as frozen no matter how much it is actually moving.
+     */
+    surface.style.backgroundImage = 'none';
 
     const observer = new ResizeObserver(() => { setup(); paint(); });
     observer.observe(canvas);

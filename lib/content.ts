@@ -38,8 +38,8 @@ export const intro = {
 
 /** Closes the page, after the products have already spoken for themselves. */
 export const closing = {
-  body: 'Four of these are for writing, for a room singing together, for love, and for finally saying the thing. The other two pay for those.',
-  signoff: 'The play goes on. These are my verses so far.',
+  body: 'Building services for writing, for a room singing together, and for love. The other three pay for those.',
+  signoff: 'The powerful play goes on. These are my contributing verses.',
 } as const;
 
 export const companies = [
@@ -135,7 +135,7 @@ export const companies = [
 export const posts: readonly Post[] = [];
 
 export const alsoBuilt = {
-  summary: "Seven more are shut down. Most of what I start doesn't work.",
+  summary: 'Seven more are shut down. Experimenting is fun and not everything needs to make money.',
   names: ['note2bill', 'cibello', 'keptivo', 'PropelOps', 'bard', 'signal', 'rhythm'],
 } as const;
 

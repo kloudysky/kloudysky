@@ -7,9 +7,13 @@ const CLOUD_PATH =
   'M160,40A88.09,88.09,0,0,0,81.29,88.67,64,64,0,1,0,72,216h88a88,88,0,0,0,0-176Zm0,160H72a48,48,0,0,1,0-96c1.1,0,2.2,0,3.29.11A88,88,0,0,0,72,128a8,8,0,0,0,16,0,72,72,0,1,1,72,72Z';
 
 const GRID = 96;
-/** Linear-derived interaction constants: pointer radius, max displacement, easing. */
-const POINTER_RADIUS = 100;
-const MAX_DISPLACE = 40;
+/**
+ * Reach and displacement are fractions of the tile, not the absolute pixel values
+ * Linear uses. Theirs is a full-width hero where a 100px radius is a small local
+ * pocket; on a 266px tile the same number leaves most of the field inert.
+ */
+const POINTER_REACH = 0.6;
+const MAX_DISPLACE = 0.18;
 const EASE = 0.12;
 const SHOCKWAVE = { speed: 225, width: 37, strength: 20, duration: 675 } as const;
 /** Pull-heavy spiral: mostly gathering, slight curl. */
@@ -123,8 +127,25 @@ export default function CloudMark({ className }: { className?: string }) {
       }
     };
 
+    /** Superellipse matching the tile the dots are laid out in. */
+    const tilePath = () => {
+      const path = new Path2D();
+      const r = Math.min(w, h) * 0.46;
+      for (let i = 0; i <= 200; i++) {
+        const a = (i / 200) * Math.PI * 2;
+        const c = Math.cos(a), s2 = Math.sin(a);
+        const x = w / 2 + r * Math.sign(c) * Math.abs(c) ** 0.4;
+        const y = h / 2 + r * Math.sign(s2) * Math.abs(s2) ** 0.4;
+        if (i) path.lineTo(x, y); else path.moveTo(x, y);
+      }
+      path.closePath();
+      return path;
+    };
+
     const paint = () => {
       ctx.clearRect(0, 0, w, h);
+      ctx.save();
+      ctx.clip(tilePath());
       const bins = new Map<number, [number, number][]>();
       const push = (b: number, x: number, y: number) => {
         const key = Math.round(b * 16) / 16;
@@ -140,11 +161,13 @@ export default function CloudMark({ className }: { className?: string }) {
         ctx.fillStyle = `rgba(237,237,237,${alpha})`;
         for (const [x, y] of points) ctx.fillRect(x, y, dot, dot);
       });
+      ctx.restore();
     };
 
     const advance = (
-      X: number[], Y: number[], DX: number[], DY: number[], B: number[], now: number, scale: number,
+      X: number[], Y: number[], DX: number[], DY: number[], B: number[], now: number, size: number,
     ) => {
+      const scale = size / 280;
       const spin = SPIN * (0.3 + charge * 1.3);
       const pull = PULL * (0.3 + charge * 1.3);
       let moving = false;
@@ -153,9 +176,9 @@ export default function CloudMark({ className }: { className?: string }) {
         if (active) {
           const dx = X[i] - px, dy = Y[i] - py;
           const d = Math.hypot(dx, dy);
-          const r = POINTER_RADIUS * scale;
+          const r = POINTER_REACH * size;
           if (d < r && d > 0.01) {
-            const f = ((1 - d / r) * MAX_DISPLACE * scale) / d;
+            const f = ((1 - d / r) * MAX_DISPLACE * size) / d;
             tx += (-dy * spin - dx * pull) * f;
             ty += (dx * spin - dy * pull) * f;
           }
@@ -185,10 +208,10 @@ export default function CloudMark({ className }: { className?: string }) {
 
     const frame = (now: number) => {
       raf = null;
-      const scale = Math.min(w, h) / 280;
+      const size = Math.min(w, h);
       charge = active ? Math.min(1, charge + 0.011) : Math.max(0, charge - 0.028);
-      const a = advance(fx, fy, fdx, fdy, fb, now, scale);
-      const b = advance(kx, ky, kdx, kdy, kb, now, scale);
+      const a = advance(fx, fy, fdx, fdy, fb, now, size);
+      const b = advance(kx, ky, kdx, kdy, kb, now, size);
       waves = waves.filter((wave) => now - wave.t <= SHOCKWAVE.duration);
       paint();
       if (active || a || b || waves.length || charge > 0.001) raf = requestAnimationFrame(frame);

@@ -32,7 +32,7 @@ export type Post = {
 export const intro = {
   name: 'Cloud Ko',
   location: 'Austin, Texas',
-  thesis: 'Engineering is what I do. Not what I stay alive for.',
+  thesis: 'Engineering is what I do. Not what I live for.',
   sub: "I'm an engineer at Amazon and father of 2 doppelgängers. Just trying to contribute a verse to the world.",
 } as const;
 

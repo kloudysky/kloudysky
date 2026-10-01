@@ -1,37 +1,5 @@
 {
-  "name": "cloudko",
-  "version": "1.0.0",
-  "description": "Personal site for Cloud Ko. cloudko.dev",
-  "scripts": {
-    "dev": "next dev --turbopack",
-    "build": "next build",
-    "start": "next start"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/kloudysky/kloudysky.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/kloudysky/kloudysky/issues"
-  },
-  "homepage": "https://github.com/kloudysky/kloudysky#readme",
-  "dependencies": {
-    "geist": "^1.5.1",
-    "next": "^16.1.1",
-    "react": "^19.2.3",
-    "react-dom": "^19.2.3"
-  },
-  "devDependencies": {
-    "@types/node": "^25.0.6",
-    "@types/react": "^19.2.8",
-    "@types/react-dom": "^19.2.3",
-    "autoprefixer": "^10.4.23",
-    "postcss": "^8.5.6",
-    "tailwindcss": "^3.4.19",
-    "typescript": "^5.9.3"
-  },
-  "private": true
+  "name": "kloudysky",
+  "private": true,
+  "packageManager": "pnpm@12.8.1"
 }

@@ -1,0 +1,32 @@
+name: kloudysky.io
+on:
+  push:
+    branches: [main]
+    paths:
+      - apps/kloudysky/**
+      - .github/workflows/kloudysky.yml
+  pull_request:
+    paths:
+      - apps/kloudysky/**
+      - .github/workflows/kloudysky.yml
+permissions:
+  contents: read
+  id-token: write
+jobs:
+  deploy:
+    # Forks cannot mint an identity token for this repo.
+    if: github.event_name == 'push' || github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: apps/kloudysky
+    steps:
+      - uses: actions/checkout@v4
+      - uses: google-github-actions/auth@v2
+        with:
+          workload_identity_provider: projects/614254960307/locations/global/workloadIdentityPools/github/providers/github
+          service_account: github-deploy@cloudko.iam.gserviceaccount.com
+      - if: github.event_name == 'push'
+        run: npx firebase-tools@15 deploy --only hosting --non-interactive
+      - if: github.event_name == 'pull_request'
+        run: npx firebase-tools@15 hosting:channel:deploy pr-${{ github.event.number }} --expires 7d --non-interactive | tee -a "$GITHUB_STEP_SUMMARY"

@@ -1,0 +1,13 @@
+{
+  "name": "@kloudysky/cloud-mark",
+  "private": true,
+  "description": "The interactive dot-field cloud mark shared by both sites.",
+  "exports": "./CloudMark.tsx",
+  "peerDependencies": {
+    "react": "^19.2.3"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.8",
+    "react": "^19.2.3"
+  }
+}

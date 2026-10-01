@@ -4,11 +4,13 @@ on:
     branches: [main]
     paths:
       - apps/cloudko/**
+      - packages/**
       - pnpm-lock.yaml
       - .github/workflows/cloudko.yml
   pull_request:
     paths:
       - apps/cloudko/**
+      - packages/**
       - pnpm-lock.yaml
       - .github/workflows/cloudko.yml
 permissions:
@@ -29,7 +31,7 @@ jobs:
         with:
           node-version: 22
           cache: pnpm
-      - run: pnpm install --frozen-lockfile --filter cloudko
+      - run: pnpm install --frozen-lockfile --filter cloudko...
       - run: pnpm build
       - uses: google-github-actions/auth@v2
         with:

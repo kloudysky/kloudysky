@@ -1,5 +1,5 @@
 import { contact, intro } from '@/lib/content';
-import CloudMark from './CloudMark';
+import CloudMark from '@kloudysky/cloud-mark';
 import SocialLinks from './SocialLinks';
 
 export default function Rail() {

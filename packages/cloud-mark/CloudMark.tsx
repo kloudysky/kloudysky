@@ -71,7 +71,13 @@ const inTile = (cx: number, cy: number) => {
   return (cx - ax) ** 2 + (cy - ay) ** 2 <= CORNER * CORNER;
 };
 
-export default function CloudMark({ className }: { className?: string }) {
+type Props = {
+  className?: string;
+  /** Dots start flung out past the tile and spiral into place once, on mount. */
+  entrance?: boolean;
+};
+
+export default function CloudMark({ className, entrance = false }: Props) {
   const ref = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
@@ -222,6 +228,19 @@ export default function CloudMark({ className }: { className?: string }) {
     const wake = () => { if (raf === null) raf = requestAnimationFrame(frame); };
 
     setup();
+    if (entrance && !reduced) {
+      const scatter = (X: number[], Y: number[], DX: number[], DY: number[], B: number[]) => {
+        for (let i = 0; i < X.length; i++) {
+          const dx = X[i] - w / 2, dy = Y[i] - h / 2;
+          DX[i] = dx * 0.9 - dy * 0.5;
+          DY[i] = dy * 0.9 + dx * 0.5;
+          B[i] = 0.25;
+        }
+      };
+      scatter(fx, fy, fdx, fdy, fb);
+      scatter(kx, ky, kdx, kdy, kb);
+      wake();
+    }
     paint();
     /*
      * Drop the PNG fallback the moment the canvas has painted. Left in place it
@@ -230,7 +249,13 @@ export default function CloudMark({ className }: { className?: string }) {
      */
     surface.style.backgroundImage = 'none';
 
-    const observer = new ResizeObserver(() => { setup(); paint(); });
+    /* The observer also reports once on observe; a relayout there would cancel the entrance. */
+    const observer = new ResizeObserver(() => {
+      const rect = canvas.getBoundingClientRect();
+      if (Math.round(rect.width) === w && Math.round(rect.height) === h) return;
+      setup();
+      paint();
+    });
     observer.observe(canvas);
 
     // Static render only; no listeners, no loop.
@@ -270,7 +295,7 @@ export default function CloudMark({ className }: { className?: string }) {
       surface.removeEventListener('pointercancel', onLeave);
       surface.removeEventListener('pointerup', onUp);
     };
-  }, []);
+  }, [entrance]);
 
   return <canvas ref={ref} aria-hidden className={className} />;
 }

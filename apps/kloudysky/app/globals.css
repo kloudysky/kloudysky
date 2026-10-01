@@ -1,0 +1,92 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+html {
+  background: #000;
+  -webkit-text-size-adjust: 100%;
+}
+
+::selection {
+  background: #fff;
+  color: #000;
+}
+
+/*
+ * Every animation on the page runs once or answers the pointer. Nothing loops,
+ * so the page stops painting as soon as it settles.
+ */
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+}
+
+/* Set animation-delay inline to sequence siblings. */
+.rise {
+  animation: rise 0.7s var(--ease) both;
+}
+
+.letter {
+  display: inline-block;
+  animation: rise 0.6s var(--ease) both;
+}
+
+/* With JavaScript the canvas condenses out of nothing, so the still image must not show first. */
+.js .mark-fallback {
+  background-image: none;
+}
+
+.work-row {
+  transition: opacity 0.25s var(--ease);
+}
+
+.work:hover .work-row:not(:hover),
+.work:focus-within .work-row:not(:focus-visible) {
+  opacity: 0.4;
+}
+
+.work-dot {
+  transform: scale(0);
+  transition: transform 0.25s var(--ease);
+}
+
+.work-name {
+  transition: transform 0.25s var(--ease);
+}
+
+.work-row:hover .work-dot,
+.work-row:focus-visible .work-dot {
+  transform: scale(1);
+}
+
+.work-row:hover .work-name,
+.work-row:focus-visible .work-name {
+  transform: translateX(14px);
+}
+
+/* Underline that draws from the left on hover and retreats to the right. */
+.link {
+  background: linear-gradient(currentColor, currentColor) no-repeat right bottom / 0 1px;
+  transition: background-size 0.3s var(--ease);
+}
+
+.link:hover,
+.link:focus-visible {
+  background-position: left bottom;
+  background-size: 100% 1px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}

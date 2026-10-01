@@ -56,7 +56,7 @@ html {
 .js .rail-lift.in > *:nth-child(6) { transition-delay: 0.3s; }
 .js .rail-lift.in > *:nth-child(7) { transition-delay: 0.36s; }
 
-/* The single hero moment: the KloudySky mark draws itself once, on load. */
+/* The single hero moment: the cloud mark draws itself once, on load. */
 .js .hero-mark path {
   stroke-dasharray: 1;
   stroke-dashoffset: 1;

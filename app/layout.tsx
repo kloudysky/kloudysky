@@ -11,13 +11,14 @@ const jetbrainsMono = JetBrains_Mono({
   display: 'swap',
 });
 
-const title = `${intro.name} · KloudySky`;
+const title = intro.name;
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://kloudysky.io'),
+  metadataBase: new URL('https://cloudko.dev'),
   title,
   description: intro.thesis,
-  openGraph: { title, description: intro.thesis, url: '/', siteName: 'KloudySky', type: 'website' },
+  alternates: { canonical: '/' },
+  openGraph: { title, description: intro.thesis, url: '/', siteName: intro.name, type: 'website' },
   twitter: { card: 'summary_large_image', title, description: intro.thesis },
   icons: {
     icon: [

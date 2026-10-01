@@ -1,7 +1,7 @@
 {
-  "name": "kloudysky",
+  "name": "cloudko",
   "version": "1.0.0",
-  "description": "Personal site for Cloud Ko. kloudysky.io",
+  "description": "Personal site for Cloud Ko. cloudko.dev",
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",

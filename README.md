@@ -5,7 +5,7 @@
             .        *    ✦
    ·    *                        .
           ╭───────────────────╮
-     ✦    │     kloudysky     │    *
+     ✦    │      cloudko      │    *
           ╰───────────────────╯
       .        ·    ✦            *
             *          .    ·
@@ -17,4 +17,4 @@
 
 ---
 
-[linkedin](https://linkedin.com/in/kloudysky) · [site](https://kloudysky.io) 
+[linkedin](https://linkedin.com/in/kloudysky) · [site](https://cloudko.dev) 
